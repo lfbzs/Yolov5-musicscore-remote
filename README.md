@@ -71,7 +71,29 @@ When the training is complete, the result of the run will appear on the remote s
 
 
 
-**1.runs/train/exp/labels、train_batch、weights**
+**1.runs**
+
+	runs
+	    --train
+	    	--exp1
+		   --weights
+		      --best.pt
+		      --last.bt
+		   --results.png
+		   --results.txt
+		   ......
+		--exp2
+		   --weights
+		      --best.pt
+		      --last.bt
+		   --results.png
+		   --results.txt
+		   ......
+		......
+	    --detect
+	    	--exp1
+		--exp2
+		.....
 
 **2.detect  weights、source、conf-thres、iou-thres**
 
