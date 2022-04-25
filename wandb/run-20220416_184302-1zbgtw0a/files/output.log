@@ -1,0 +1,71 @@
+                 from  n    params  module                                  arguments
+  0                -1  1      5280  models.common.Focus                     [3, 48, 3]
+  1                -1  1     41664  models.common.Conv                      [48, 96, 3, 2]
+  2                -1  1     65280  models.common.C3                        [96, 96, 2]
+  3                -1  1    166272  models.common.Conv                      [96, 192, 3, 2]
+  4                -1  1    629760  models.common.C3                        [192, 192, 6]
+  5                -1  1    664320  models.common.Conv                      [192, 384, 3, 2]
+  6                -1  1   2512896  models.common.C3                        [384, 384, 6]
+  7                -1  1   2655744  models.common.Conv                      [384, 768, 3, 2]
+  8                -1  1   1476864  models.common.SPP                       [768, 768, [5, 9, 13]]
+  9                -1  1   4134912  models.common.C3                        [768, 768, 2, False]
+ 10                -1  1    295680  models.common.Conv                      [768, 384, 1, 1]
+ 11                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']
+ 12           [-1, 6]  1         0  models.common.Concat                    [1]
+ 13                -1  1   1182720  models.common.C3                        [768, 384, 2, False]
+ 14                -1  1     74112  models.common.Conv                      [384, 192, 1, 1]
+ 15                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']
+ 16           [-1, 4]  1         0  models.common.Concat                    [1]
+ 17                -1  1    296448  models.common.C3                        [384, 192, 2, False]
+ 18                -1  1    332160  models.common.Conv                      [192, 192, 3, 2]
+ 19          [-1, 14]  1         0  models.common.Concat                    [1]
+ 20                -1  1   1035264  models.common.C3                        [384, 384, 2, False]
+ 21                -1  1   1327872  models.common.Conv                      [384, 384, 3, 2]
+ 22          [-1, 10]  1         0  models.common.Concat                    [1]
+ 23                -1  1   4134912  models.common.C3                        [768, 768, 2, False]
+ 24      [17, 20, 23]  1    796077  models.yolo.Detect                      [192, [[10, 13, 16, 30, 33, 23], [30, 61, 62, 45, 59, 119], [116, 90, 156, 198, 373, 326]], [192, 384, 768]]
+/Users/loufengbin/miniforge3/envs/tf2x/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Model Summary: 391 layers, 21828237 parameters, 21828237 gradients, 52.9 GFLOPS
+Transferred 428/506 items from weights/yolov5m.pt
+Scaled weight_decay = 0.0005
+Optimizer groups: 86 .bias, 86 conv.weight, 83 other
+[34m[1mtrain: [39m[22mScanning 'VOCdevkit/labels/train' images and labels... 451 found, 0 missing, 27 empty, 0 corrupted: 100% 451/451 [00:00<00:00, 1178.11it/s]
+[34m[1mtrain: [39m[22mNew cache created: VOCdevkit/labels/train.cache
+/Users/loufengbin/miniforge3/envs/tf2x/lib/python3.8/site-packages/torchvision/io/image.py:11: UserWarning: Failed to load image Python extension:
+  warn(f"Failed to load image Python extension: {e}")
+/Users/loufengbin/miniforge3/envs/tf2x/lib/python3.8/site-packages/torchvision/io/image.py:11: UserWarning: Failed to load image Python extension:
+  warn(f"Failed to load image Python extension: {e}")
+[34m[1mval: [39m[22mScanning 'VOCdevkit/labels/val' images and labels... 49 found, 0 missing, 2 empty, 0 corrupted: 100% 49/49 [00:00<00:00, 974.29it/s]
+[34m[1mval: [39m[22mNew cache created: VOCdevkit/labels/val.cache
+/Users/loufengbin/miniforge3/envs/tf2x/lib/python3.8/site-packages/torchvision/io/image.py:11: UserWarning: Failed to load image Python extension:
+  warn(f"Failed to load image Python extension: {e}")
+/Users/loufengbin/miniforge3/envs/tf2x/lib/python3.8/site-packages/torchvision/io/image.py:11: UserWarning: Failed to load image Python extension:
+  warn(f"Failed to load image Python extension: {e}")
+/Users/loufengbin/miniforge3/envs/tf2x/lib/python3.8/site-packages/torchvision/io/image.py:11: UserWarning: Failed to load image Python extension:
+  warn(f"Failed to load image Python extension: {e}")
+/Users/loufengbin/miniforge3/envs/tf2x/lib/python3.8/site-packages/torchvision/io/image.py:11: UserWarning: Failed to load image Python extension:
+  warn(f"Failed to load image Python extension: {e}")
+Plotting labels...
+[34m[1mautoanchor: [39m[22mAnalyzing anchors... anchors/target = 5.09, Best Possible Recall (BPR) = 1.0000
+Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Image sizes 640 train, 640 test
+Using 2 dataloader workers
+Logging results to runs/train/exp
+Starting training for 1 epochs...
+     Epoch   gpu_mem       box       obj       cls     total    labels  img_size
+  0% 0/226 [00:00<?, ?it/s]/Users/loufengbin/miniforge3/envs/tf2x/lib/python3.8/site-packages/torch/autocast_mode.py:141: UserWarning: User provided device_type of 'cuda', but CUDA is not available. Disabling
+  warnings.warn('User provided device_type of \'cuda\', but CUDA is not available. Disabling')
+
+
+       0/0        0G    0.1222    0.1494    0.1218    0.3935       109       640:   2% 4/226 [00:08<07:50,  2.12s/it]
+Traceback (most recent call last):
+  File "/Users/loufengbin/Documents/python/pythonProject/tensorflow/YOLO/yolov5-1的副本/train.py", line 584, in <module>
+    train(hyp, opt, device, tb_writer)
+  File "/Users/loufengbin/Documents/python/pythonProject/tensorflow/YOLO/yolov5-1的副本/train.py", line 319, in train
+    scaler.scale(loss).backward()
+  File "/Users/loufengbin/miniforge3/envs/tf2x/lib/python3.8/site-packages/torch/_tensor.py", line 307, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/Users/loufengbin/miniforge3/envs/tf2x/lib/python3.8/site-packages/torch/autograd/__init__.py", line 154, in backward
+    Variable._execution_engine.run_backward(
+KeyboardInterrupt
